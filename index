@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Form Biodata Modern</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #4f86f7, #6f5cff, #9b59b6);
+    color: white;
+}
+
+/* CARD */
+.card {
+    width: 90%;
+    max-width: 400px;
+    padding: 25px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(15px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+/* MENU */
+.menu {
+    text-align: center;
+}
+
+.menu button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* FORM */
+.container {
+    display: none;
+}
+
+.form input,
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: rgba(255,255,255,0.2);
+    color: white;
+}
+
+/* FIX BIAR BISA DIKETIK */
+.form input:focus,
+.form textarea:focus {
+    background: rgba(255,255,255,0.3);
+    border: 2px solid white;
+}
+
+/* BUTTON */
+.form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-btn {
+    background: white;
+    color: #4f86f7;
+}
+
+.back-btn {
+    background: rgba(255,255,255,0.3);
+    color: white;
+}
+</style>
+</head>
+
+<body>
+
+<!-- MENU -->
+<div class="card menu" id="menu">
+    <h2>✨ MENU ✨</h2>
+    <button onclick="showForm()">📝 Isi Form</button>
+    <button onclick="alert('XAMPP')">💻 XAMPP</button>
+    <button onclick="alert('Laragon')">⚙️ Laragon</button>
+</div>
+
+<!-- FORM -->
+<div class="card container" id="formContainer">
+    <form class="form" id="biodataForm">
+        <h2>📋 BIODATA</h2>
+
+        <label>Nama</label>
+        <input type="text" id="name" required>
+
+        <label>Email</label>
+        <input type="email" id="email" required>
+
+        <label>Hobi</label>
+        <input type="text" id="hobby">
+
+        <label>Umur</label>
+        <input type="number" id="age">
+
+        <label>Alamat</label>
+        <textarea id="address"></textarea>
+
+        <button class="submit-btn" type="submit">Submit 🚀</button>
+        <button class="back-btn" type="button" onclick="backMenu()">Kembali ⬅️</button>
+    </form>
+</div>
+
+<script>
+function showForm() {
+    document.getElementById("menu").style.display = "none";
+    document.getElementById("formContainer").style.display = "block";
+}
+
+function backMenu() {
+    document.getElementById("menu").style.display = "block";
+    document.getElementById("formContainer").style.display = "none";
+}
+
+document.getElementById("biodataForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+
+    if(name === "" || email === "") {
+        alert("⚠️ Harus diisi!");
+        return;
+    }
+
+    alert("🎉 Berhasil dikirim!");
+});
+</script>
+
+</body>
+</html>
